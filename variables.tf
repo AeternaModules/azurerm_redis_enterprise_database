@@ -18,15 +18,15 @@ EOT
 
   type = map(object({
     cluster_id                     = string
-    client_protocol                = optional(string, "Encrypted")
-    clustering_policy              = optional(string, "OSSCluster")
-    eviction_policy                = optional(string, "VolatileLRU")
+    client_protocol                = optional(string) # Default: "Encrypted"
+    clustering_policy              = optional(string) # Default: "OSSCluster"
+    eviction_policy                = optional(string) # Default: "VolatileLRU"
     linked_database_group_nickname = optional(string)
     linked_database_id             = optional(set(string))
-    name                           = optional(string, "default")
-    port                           = optional(number, 10000)
+    name                           = optional(string) # Default: "default"
+    port                           = optional(number) # Default: 10000
     module = optional(list(object({
-      args = optional(string, "")
+      args = optional(string) # Default: ""
       name = string
     })))
   }))
