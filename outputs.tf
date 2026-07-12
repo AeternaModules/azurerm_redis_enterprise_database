@@ -1,3 +1,7 @@
+output "redis_enterprise_databases_id" {
+  description = "Map of id values across all redis_enterprise_databases, keyed the same as var.redis_enterprise_databases"
+  value       = { for k, v in azurerm_redis_enterprise_database.redis_enterprise_databases : k => v.id }
+}
 output "redis_enterprise_databases_client_protocol" {
   description = "Map of client_protocol values across all redis_enterprise_databases, keyed the same as var.redis_enterprise_databases"
   value       = { for k, v in azurerm_redis_enterprise_database.redis_enterprise_databases : k => v.client_protocol }
